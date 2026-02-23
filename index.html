@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Barnes — General Manager, Games & Interactive Entertainment</title>
+<meta name="description" content="Daniel Barnes. Fifteen years running games businesses end to end. P&L ownership, studio operations, capital raising, publisher relationships.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #161616;
+    --line: #222222;
+    --gold: #c9a96e;
+    --gold2: #e8c98a;
+    --text: #e8e4dc;
+    --muted: #888880;
+    --dim: #555550;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 120px 60px 100px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 1.8;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .stat {
+    padding-right: 32px;
+  }
+
+  .stat + .stat {
+    padding-left: 32px;
+    border-left: 1px solid var(--line);
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, transparent 30%);
+    z-index: 1;
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg) 0%, transparent 30%);
+    z-index: 1;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.6;
+    filter: grayscale(20%) contrast(1.1);
+  }
+
+  .hero-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0.4;
+  }
+
+  .hero-photo-placeholder svg {
+    width: 80px;
+    height: 80px;
+    stroke: var(--dim);
+    fill: none;
+    stroke-width: 1;
+  }
+
+  .hero-photo-placeholder span {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 72px;
+  }
+
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    margin-left: 24px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .about-text p:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .about-aside {
+    padding-top: 8px;
+  }
+
+  .aside-block {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+  }
+
+  .aside-block:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .aside-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .aside-content {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* NUMBERS */
+  .numbers-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 100px 60px;
+  }
+
+  .numbers-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+
+  .number-block {
+    background: var(--bg2);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .number-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+
+  .number-block:hover::before { height: 100%; }
+
+  .number-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 4vw, 60px);
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .number-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 220px;
+  }
+
+  /* EXPERIENCE */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .exp-item:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .exp-meta {
+    padding-top: 4px;
+  }
+
+  .exp-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .exp-dates {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 4px;
+  }
+
+  .exp-location {
+    font-size: 12px;
+    color: var(--dim);
+  }
+
+  .exp-content {}
+
+  .exp-role {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .exp-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  .exp-body + .exp-body {
+    margin-top: 16px;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .contact-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .contact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-value:hover { color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--line); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 24px 32px; }
+    .nav-links { gap: 24px; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 140px 32px 80px; }
+    .hero-right { height: 50vw; }
+    .hero-stats { grid-template-columns: repeat(3,1fr); }
+
+    section { padding: 80px 32px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .numbers-grid { grid-template-columns: 1fr; }
+    .number-block { padding: 40px 32px; }
+
+    .exp-item { grid-template-columns: 1fr; gap: 20px; }
+
+    .contact-inner { grid-template-columns: 1fr; gap: 56px; padding: 80px 32px; }
+    .numbers-section { padding: 80px 32px; }
+
+    footer { padding: 32px; flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Daniel Barnes</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/ltvcpi/" target="_blank">LinkedIn</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">General Manager &nbsp;·&nbsp; Games &amp; Interactive Entertainment</p>
+    <h1 class="hero-name">Daniel<br><em>Barnes</em></h1>
+    <p class="hero-desc">
+      Fifteen years running game businesses end to end. P&amp;L ownership, studio operations, org design, capital raising, and the hard calls that sit across all of it.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">$250m</div>
+        <div class="stat-label">Revenue built on a single title</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">386→190</div>
+        <div class="stat-label">Studio restructured</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$78.9m</div>
+        <div class="stat-label">Institutional capital raised</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      id="hero-photo"
+      class="hero-photo"
+      src="photo.jpg"
+      alt="Daniel Barnes"
+      onerror="this.style.display='none'; document.getElementById('hero-placeholder').style.display='flex';"
+    />
+    <div id="hero-placeholder" class="hero-photo-placeholder" style="display:none;">
+      <svg viewBox="0 0 80 80"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.57 13.43-30 30-30s30 13.43 30 30"/></svg>
+      <span>Photo coming soon</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I got into games because of PlayStation. Some of my most enduring memories are tied to those experiences, and I have spent fifteen years trying to build things that affect people the same way.</p>
+      <p>What I have learned is that great games do not fail because of bad ideas. They fail because the business around them is not built to support them. The P&amp;L that nobody owns, the roadmap with no accountability behind it, the org that has grown faster than its decision-making infrastructure. Those are the problems I know how to solve.</p>
+      <p>At N3TWORK I built the operating infrastructure behind $250m in revenue on a single title, negotiated a publishing deal with The Tetris Company, and raised $78.9m in institutional capital. At Phoenix Labs I stepped into a studio with enormous creative potential and significant operational challenges, made the hard portfolio calls with full decision-making authority, and reduced monthly burn from $11m to $3.5m while protecting the titles worth saving. I founded Rift, built a technology platform and live game in 18 months on $250k, and made a clean decision to wind down when the funding environment shifted. I am now President at Mavan, where we have grown revenue 4x and built the operational foundation the business needed to scale properly.</p>
+      <p>The through line in all of it is the same thing: I find where something is broken and I fix it. Not because I am negative, but because the fastest path to where you want to be runs directly through an honest account of what is in the way.</p>
+    </div>
+    <div class="about-aside reveal">
+      <div class="aside-block">
+        <div class="aside-label">Location</div>
+        <div class="aside-content">London, UK</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">Languages</div>
+        <div class="aside-content">English — Native<br>French — Native<br>German — Intermediate</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">Education</div>
+        <div class="aside-content">MBA, Université de Nantes<br>2007 – 2011</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">How I work</div>
+        <div class="aside-content">Problem-centric. Radical candor. I would rather name the real obstacle than paper over it. I change my mind reasonably often, but always with logic and never because it is easier.</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">Currently open to</div>
+        <div class="aside-content">GM, COO, and operational leadership roles in games and interactive entertainment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers-section">
+  <div class="numbers-grid">
+    <div class="number-block reveal">
+      <div class="number-big">$250m</div>
+      <div class="number-desc">Lifetime revenue on Legendary: Game of Heroes with full P&amp;L ownership at N3TWORK</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">$11m→$3.5m</div>
+      <div class="number-desc">Monthly burn reduced at Phoenix Labs over 18 months, 386 to 190 headcount</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">$78.9m</div>
+      <div class="number-desc">Raised across two institutional rounds from KPCB Growth, Floodgate, Galaxy &amp; Griffin</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">4x</div>
+      <div class="number-desc">Revenue growth at Mavan with flat headcount and significantly improved profitability</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">$250k</div>
+      <div class="number-desc">Pre-seed capital used to build a complete technology platform and live game at Rift in 18 months</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">$2m+</div>
+      <div class="number-desc">Daily UA spend managed at Machine Zone during mobile gaming's formative years</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="experience-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Mavan</div>
+        <div class="exp-dates">Nov 2025 — Present</div>
+        <div class="exp-location">London, UK</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">President</div>
+        <div class="exp-body">Mavan is a performance marketing agency for games. I came in as a contractor first, spent time understanding the business properly, then joined as President to build the operational foundation it needed to scale. That meant installing P&amp;L reporting and KPI frameworks where there were none, rebuilding the org design, redefining how we hire and what we measure, and taking over new business development. The focus throughout has been on turning good work into repeatable, defensible performance. Revenue is up 4x, headcount is broadly flat, and the business is significantly more profitable. I am also building Mavan's proprietary technology platform to systematise what we do across clients.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Rift</div>
+        <div class="exp-dates">Mid 2024 — Nov 2025</div>
+        <div class="exp-location">London, UK</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Founder &amp; CEO</div>
+        <div class="exp-body">Founded Rift to build a new category in interactive entertainment: social, multiplayer storytelling powered by AI. Built StoryEngine — a proprietary narrative platform with persistent player memory, emergent NPC behaviour, modular architecture, and live ops infrastructure — and launched The Consulting Detectives into alpha. 1,000+ sessions, 12-minute average session length, 50% of sessions from player invites. Built a complete technology platform and live game in 18 months on $250k pre-seed. Wound down when the seed funding environment structurally shifted against early-stage studios.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Phoenix Labs</div>
+        <div class="exp-dates">Jan 2023 — Mid 2024</div>
+        <div class="exp-location">Remote</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">General Manager</div>
+        <div class="exp-body">Phoenix Labs had real creative ambition and serious operational challenges in equal measure. 386 people across 11 titles on Switch, console, and PC, with no P&amp;L framework and no fiscal accountability structures in place. I stepped in with full decision-making authority and a clear mandate: give the studio the best possible chance of success. That meant making hard portfolio calls quickly, focusing resource on the titles with genuine commercial potential and strong team infrastructure, and installing the accountability frameworks that let executive producers own their numbers for the first time. Reduced monthly burn from $11m to $3.5m and headcount from 386 to 190 over 18 months. Two titles reached a point where I believed they were ready to ship and would have performed well.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Forte Labs</div>
+        <div class="exp-dates">Jan 2022 — Jan 2023</div>
+        <div class="exp-location">Remote</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Product Lead, Platform Rebuild</div>
+        <div class="exp-body">Owned the product side of a ground-up rebuild of Forte's blockchain gaming platform. Diagnosed why the monolithic original had failed to gain developer adoption. Working alongside the technical lead, defined and delivered a new microservices architecture that gave publishers genuine flexibility while maintaining compliance across the stack.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">N3TWORK</div>
+        <div class="exp-dates">Feb 2016 — Jan 2022</div>
+        <div class="exp-location">San Francisco</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">CMO, then COO</div>
+        <div class="exp-body">Joined as CMO and expanded into a full COO role working directly alongside the CEO. Led product development and live operations for Legendary: Game of Heroes to $250m lifetime revenue with P&amp;L ownership throughout. Negotiated and managed the publishing relationship with Blue Planet Software (The Tetris Company). Led Tetris Primetime, a daily live game show with real cash prizes. Raised $78.9m across two rounds from KPCB Growth, Floodgate, Galaxy, and Griffin. Designed org model, culture frameworks, and hiring infrastructure for a distributed global team.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Zynga</div>
+        <div class="exp-dates">Feb 2014 — Feb 2016</div>
+        <div class="exp-location">London / San Francisco</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Central Product Management</div>
+        <div class="exp-body">Joined Zynga's central product team post the $527m NaturalMotion acquisition with P&amp;L ownership across the portfolio including CSR2 and Dawn of Titans. Grew CSR2 to $143m annual revenue and 500k DAU. Managed licensing relationships across Ferrari, Lamborghini, McLaren, and Porsche.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">NaturalMotion</div>
+        <div class="exp-dates">Feb 2013 — Jan 2014</div>
+        <div class="exp-location">Oxford, UK</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">VP, Acquisition, Retention &amp; Monetisation</div>
+        <div class="exp-body">Owned and scaled revenue and install growth by optimising the LTV to CPI equation across the portfolio. Commercial performance during this period contributed directly to the $527m Zynga acquisition.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Machine Zone</div>
+        <div class="exp-dates">Jun 2011 — Jan 2013</div>
+        <div class="exp-location">Palo Alto, CA</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Early Hire, Performance Marketing</div>
+        <div class="exp-body">Part of the founding group at what became Machine Zone, the company behind Game of War. Built the performance marketing stack from scratch: server-to-server integrations, attribution systems, cost tracking. Scaled 5 titles into the top 50 grossing on iOS. Managed $2m+ daily UA spend. Worked directly with Facebook and Google on CPI bidding models that became industry standard.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-headline reveal">Let's<br><em>talk.</em></h2>
+    <div class="contact-details reveal">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:dan@kijo.io" class="contact-value">dan@kijo.io</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <a href="tel:+447305436350" class="contact-value">+44 7305 436 350</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/ltvcpi/" target="_blank" class="contact-value">linkedin.com/in/ltvcpi</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-value" style="cursor:default;">London, UK</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-copy">© 2026 Daniel Barnes</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/ltvcpi/" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/_danbarnes_" target="_blank">Twitter</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Stagger number blocks
+  document.querySelectorAll('.number-block.reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+  });
+
+  // Hero photo fallback - check immediately
+  const img = document.getElementById('hero-photo');
+  if (img && img.complete && img.naturalWidth === 0) {
+    img.style.display = 'none';
+    document.getElementById('hero-placeholder').style.display = 'flex';
+  }
+</script>
+</body>
+</html>
