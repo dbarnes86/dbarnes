@@ -1,654 +1,869 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refuge Club — Bordeaux</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
-    <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daniel Barnes — General Manager, Games & Interactive Entertainment</title>
+<meta name="description" content="Daniel Barnes. Fifteen years running games businesses end to end. P&L ownership, studio operations, capital raising, publisher relationships.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #161616;
+    --line: #222222;
+    --gold: #c9a96e;
+    --gold2: #e8c98a;
+    --text: #e8e4dc;
+    --muted: #888880;
+    --dim: #555550;
+  }
 
-    :root {
-        --cream:    #F6F0E6;
-        --ivory:    #F0E9DB;
-        --stone:    #E0D6C6;
-        --parchment:#D4C8B4;
-        --wine:     #3E0F1A;
-        --wine-mid: #5C1E2C;
-        --gold:     #A87828;
-        --gold-lt:  #C49840;
-        --gold-pale:#E8D49A;
-        --ink:      #201410;
-        --warm-gray:#7A6E64;
-    }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
-    body {
-        font-family: 'Raleway', sans-serif;
-        background: var(--cream);
-        color: var(--ink);
-        line-height: 1.6;
-        overflow-x: hidden;
-    }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-    nav {
-        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 1.6rem 4rem;
-        background: rgba(246,240,230,0.93);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(168,120,40,0.15);
-    }
-    .nav-brand { display: flex; flex-direction: column; gap: 0.1rem; text-decoration: none; }
-    .nav-wordmark { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.35em; text-transform: uppercase; color: var(--wine); }
-    .nav-sub { font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 300; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 0.65rem; font-weight: 300; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); text-decoration: none; transition: color 0.25s; }
-    .nav-links a:hover { color: var(--wine); }
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
 
-    /* HERO */
-    .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
-    .hero-bg {
-        position: absolute; inset: 0;
-        background:
-            radial-gradient(ellipse 120% 80% at 50% 30%, rgba(232,200,120,0.15) 0%, transparent 60%),
-            radial-gradient(ellipse 80% 60% at 20% 80%, rgba(192,154,58,0.1) 0%, transparent 55%),
-            radial-gradient(ellipse 80% 60% at 80% 90%, rgba(62,15,26,0.06) 0%, transparent 55%),
-            linear-gradient(175deg, #F6F0E6 0%, #EDE3D0 40%, #E4D4B8 100%);
-    }
-    .hero-vine { position: absolute; inset: 0; pointer-events: none; opacity: 0.08; }
-    .hero-horizon { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.4; }
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 28px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+  }
 
-    .hero-inner { position: relative; z-index: 2; padding: 8rem 2rem 6rem; max-width: 960px; margin: 0 auto; }
-    .hero-pre { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; }
-    .hero-pre-line { width: 50px; height: 1px; background: var(--gold); opacity: 0.6; }
-    .hero-pre-text { font-size: 0.62rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 300; }
-    .hero-emblem { margin: 0 auto 2rem; width: 72px; height: 72px; }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+  }
 
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(5rem, 13vw, 10rem); font-weight: 300; letter-spacing: 0.12em; line-height: 0.88; color: var(--wine); }
-    .hero-title-sub { display: block; font-family: 'Cormorant Garamond', serif; font-size: 0.3em; font-weight: 300; font-style: italic; letter-spacing: 0.5em; color: var(--gold); margin-top: 0.6em; }
-    .hero-body { margin: 3.5rem auto 0; max-width: 600px; font-size: 1.0rem; font-weight: 200; line-height: 1.95; color: #5A4E44; letter-spacing: 0.02em; }
-    .hero-founding { margin-top: 3rem; display: inline-flex; align-items: center; gap: 1.5rem; padding: 0.75rem 2.5rem; border: 1px solid rgba(168,120,40,0.3); }
-    .hero-founding-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
-    .hero-founding span { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 300; }
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
 
-    .scroll-hint { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
-    .scroll-hint span { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--warm-gray); opacity: 0.5; }
-    .scroll-hint-bar { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--gold), transparent); opacity: 0.4; animation: drip 2.5s ease-in-out infinite; }
-    @keyframes drip { 0% { transform: scaleY(0); transform-origin: top; opacity: 0; } 50% { transform: scaleY(1); opacity: 0.4; } 100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; } }
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
 
-    /* SHARED */
-    .section-pad { padding: 9rem 4rem; }
-    .section-narrow { max-width: 1100px; margin: 0 auto; }
-    .eyebrow { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 300; margin-bottom: 0.85rem; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; color: var(--wine); letter-spacing: 0.03em; line-height: 1.1; }
-    .rule-gold { width: 60px; height: 1px; background: var(--gold); margin: 1.5rem 0; opacity: 0.5; }
-    .full-rule { height: 1px; background: linear-gradient(to right, transparent, rgba(168,120,40,0.2), transparent); }
+  .nav-links a:hover { color: var(--gold); }
 
-    /* VISION */
-    .vision-bg { background: var(--ivory); }
-    .vision-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 5rem; }
-    .vision-header-right { font-size: 0.95rem; font-weight: 200; line-height: 2; color: #5A4E44; padding-top: 1rem; }
-    .vision-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid rgba(168,120,40,0.12); }
-    .vision-item { padding: 3rem 2.5rem; border-right: 1px solid rgba(168,120,40,0.12); transition: background 0.35s; }
-    .vision-item:last-child { border-right: none; }
-    .vision-item:hover { background: rgba(168,120,40,0.03); }
-    .vision-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: rgba(168,120,40,0.18); line-height: 1; margin-bottom: 1.5rem; font-style: italic; }
-    .vision-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--wine); margin-bottom: 1rem; }
-    .vision-item p { font-size: 0.85rem; font-weight: 200; line-height: 1.9; color: #5A4E44; }
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* ESTATE STATS */
-    .estate-bg { background: var(--wine); }
-    .estate-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 4rem; }
-    .estate-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4rem; }
-    .estate-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 300; color: var(--cream); letter-spacing: 0.04em; }
-    .estate-header p { font-size: 0.82rem; font-weight: 200; line-height: 1.9; color: rgba(246,240,230,0.5); max-width: 360px; text-align: right; }
-    .stats-row { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid rgba(246,240,230,0.12); }
-    .stat { padding: 2.5rem 1rem; border-right: 1px solid rgba(246,240,230,0.1); text-align: center; }
-    .stat:last-child { border-right: none; }
-    .stat-n { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--gold-lt); font-style: italic; line-height: 1; }
-    .stat-l { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(246,240,230,0.35); margin-top: 0.6rem; font-weight: 200; }
-    .estate-region { margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid rgba(246,240,230,0.1); display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
-    .estate-region-tag { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 300; color: rgba(246,240,230,0.4); }
-    .region-badges { display: flex; gap: 1.5rem; }
-    .region-badge { padding: 0.5rem 1.5rem; border: 1px solid rgba(196,152,64,0.3); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-lt); font-weight: 300; }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 120px 60px 100px;
+    position: relative;
+    z-index: 2;
+  }
 
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
 
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 7vw, 96px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
 
-    /* MEMBERSHIP */
-    .member-bg { background: var(--cream); }
-    .member-preamble { max-width: 680px; font-size: 0.92rem; font-weight: 200; line-height: 2; color: #5A4E44; margin-top: 1.5rem; }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gold);
+  }
 
-    /* Top tier */
-    .tier-top { margin-top: 4rem; border: 1px solid rgba(62,15,26,0.18); background: var(--wine); padding: 4rem; display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; gap: 0; position: relative; }
-    .tier-top-badge { position: absolute; top: -1px; left: 4rem; background: var(--gold); color: var(--wine); font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 0.35rem 1.25rem; font-weight: 400; }
-    .tier-top-col { padding: 0 3rem; }
-    .tier-top-col:first-child { padding-left: 0; }
-    .tier-top-col:last-child { padding-right: 0; }
-    .tier-top-div { background: rgba(246,240,230,0.1); }
+  .hero-desc {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 1.8;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
 
-    .tt-label { font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold-lt); font-weight: 300; margin-bottom: 1.25rem; }
-    .tt-name { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--cream); margin-bottom: 0.25rem; }
-    .tt-blurb { font-size: 0.85rem; font-weight: 200; line-height: 1.9; color: rgba(246,240,230,0.5); margin-top: 1rem; }
-    .tt-price-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246,240,230,0.35); margin-bottom: 0.4rem; font-weight: 200; }
-    .tt-price { font-family: 'Cormorant Garamond', serif; font-size: 3.8rem; font-weight: 300; color: var(--cream); line-height: 1; }
-    .tt-price sup { font-size: 1.4rem; color: var(--gold-lt); vertical-align: super; }
-    .tt-annual-wrap { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(246,240,230,0.12); }
-    .tt-annual-label { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(246,240,230,0.35); font-weight: 200; }
-    .tt-annual-price { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: var(--gold-lt); margin-top: 0.2rem; }
-    .tt-spots { margin-top: 1.25rem; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(246,240,230,0.3); font-weight: 200; }
-    .tt-list { list-style: none; }
-    .tt-list li { font-size: 0.82rem; font-weight: 200; color: rgba(246,240,230,0.6); padding: 0.5rem 0; border-bottom: 1px solid rgba(246,240,230,0.06); display: flex; gap: 0.8rem; }
-    .tt-list li::before { content: '—'; color: var(--gold-lt); opacity: 0.5; flex-shrink: 0; }
-    .tt-cta { margin-top: 2.5rem; display: block; text-align: center; padding: 1rem 2rem; background: var(--gold); color: var(--wine); font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase; text-decoration: none; font-weight: 400; transition: background 0.3s; }
-    .tt-cta:hover { background: var(--gold-lt); }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
 
-    /* Lower 3 tiers */
-    .tiers-lower { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid rgba(62,15,26,0.1); border-top: none; }
-    .tier-card { padding: 3.5rem 2.5rem; border-right: 1px solid rgba(62,15,26,0.1); background: var(--ivory); display: flex; flex-direction: column; transition: background 0.3s; }
-    .tier-card:last-child { border-right: none; }
-    .tier-card:hover { background: #EDE5D5; }
-    .t-name { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 300; margin-bottom: 1.5rem; }
-    .t-fee-label { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-gray); opacity: 0.65; margin-bottom: 0.3rem; }
-    .t-price { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--wine); line-height: 1; }
-    .t-price sup { font-size: 1.1rem; color: var(--gold); vertical-align: super; }
-    .t-annual { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(62,15,26,0.08); }
-    .t-annual-label { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-gray); opacity: 0.55; font-weight: 200; }
-    .t-annual-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--gold); margin-top: 0.15rem; }
-    .t-spots { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-gray); opacity: 0.45; margin: 1.5rem 0; font-weight: 200; }
-    .t-rule { height: 1px; background: rgba(62,15,26,0.07); margin-bottom: 1.75rem; }
-    .t-benefits { list-style: none; flex: 1; }
-    .t-benefits li { font-size: 0.82rem; font-weight: 200; color: #5A4E44; padding: 0.5rem 0; border-bottom: 1px solid rgba(62,15,26,0.05); display: flex; gap: 0.75rem; }
-    .t-benefits li::before { content: '—'; color: var(--gold); opacity: 0.5; flex-shrink: 0; }
-    .t-cta { margin-top: 2.5rem; display: block; text-align: center; padding: 0.9rem 2rem; border: 1px solid rgba(62,15,26,0.2); color: var(--wine); font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; font-weight: 300; transition: all 0.3s; }
-    .t-cta:hover { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+  .stat {
+    padding-right: 32px;
+  }
 
+  .stat + .stat {
+    padding-left: 32px;
+    border-left: 1px solid var(--line);
+  }
 
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
 
-    /* ABOUT */
-    .about-bg { background: var(--ivory); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr; gap: 0; margin-top: 4rem; border: 1px solid rgba(168,120,40,0.12); }
-    .about-col { padding: 3rem 3rem; border: none; }
-    .about-div { background: rgba(168,120,40,0.12); }
-    .about-col-label { font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 300; margin-bottom: 1rem; }
-    .about-col-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--wine); margin-bottom: 0.5rem; }
-    .about-col-sub { font-size: 0.82rem; font-weight: 200; color: var(--warm-gray); line-height: 1.7; }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
 
-    /* APPLY */
-    .apply-bg { background: linear-gradient(175deg, var(--wine) 0%, #2A0810 100%); position: relative; overflow: hidden; }
-    .apply-bg::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(196,152,64,0.08) 0%, transparent 60%); }
-    .apply-inner { position: relative; z-index: 1; }
-    .apply-cols { display: grid; grid-template-columns: 1fr 1px 1.5fr; gap: 0; margin-top: 4rem; align-items: start; }
-    .apply-left { padding-right: 4rem; }
-    .apply-col-rule { background: rgba(196,152,64,0.15); }
-    .apply-right { padding-left: 4rem; }
-    .apply-left .section-title { color: var(--cream); }
-    .apply-left .eyebrow { color: var(--gold-lt); }
-    .apply-body { font-size: 0.9rem; font-weight: 200; line-height: 2; color: rgba(246,240,230,0.5); margin-top: 1.5rem; }
-    .apply-body strong { color: rgba(246,240,230,0.75); font-weight: 300; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(246,240,230,0.35); margin-bottom: 0.5rem; font-weight: 300; }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.85rem 1rem; background: rgba(246,240,230,0.06); border: 1px solid rgba(196,152,64,0.18); color: var(--cream); font-family: 'Raleway', sans-serif; font-size: 0.88rem; font-weight: 200; transition: all 0.3s; appearance: none; }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(246,240,230,0.2); }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: rgba(196,152,64,0.5); background: rgba(196,152,64,0.06); }
-    .form-group select option { background: var(--wine); color: var(--cream); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .form-group textarea { min-height: 120px; resize: vertical; }
-    .btn-submit { width: 100%; padding: 1.1rem 2rem; background: var(--gold); border: none; color: var(--wine); font-family: 'Raleway', sans-serif; font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; font-weight: 400; cursor: pointer; transition: background 0.3s; margin-top: 0.5rem; }
-    .btn-submit:hover { background: var(--gold-lt); }
-    .form-note { font-size: 0.72rem; font-weight: 200; color: rgba(246,240,230,0.3); margin-top: 1.25rem; line-height: 1.8; text-align: center; }
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
 
-    /* FOOTER */
-    footer { background: #160608; padding: 2.5rem 4rem; display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.35em; text-transform: uppercase; font-weight: 300; color: rgba(246,240,230,0.25); }
-    .footer-copy { font-size: 0.58rem; letter-spacing: 0.15em; color: rgba(246,240,230,0.18); font-weight: 200; }
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, transparent 30%);
+    z-index: 1;
+  }
 
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.9s ease, transform 0.9s ease; }
-    .reveal.in { opacity: 1; transform: translateY(0); }
-    .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.2s; }
-    .reveal-d3 { transition-delay: 0.3s; }
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg) 0%, transparent 30%);
+    z-index: 1;
+  }
 
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-        nav { padding: 1.5rem 2rem; }
-        .nav-links { display: none; }
-        .section-pad { padding: 6rem 2rem; }
-        .estate-inner { padding: 4rem 2rem; }
-        .vision-header { grid-template-columns: 1fr; }
-        .vision-grid { grid-template-columns: repeat(2, 1fr); }
-        .stats-row { grid-template-columns: repeat(3, 1fr); }
-        .estate-header { flex-direction: column; gap: 1.5rem; }
-        .estate-header p { text-align: left; max-width: 100%; }
-        .estate-region { flex-direction: column; align-items: flex-start; }
-        .comps-grid { grid-template-columns: 1fr; }
-        .comp-item { border-right: none; border-bottom: 1px solid rgba(62,15,26,0.08); }
-        .comps-refuge { flex-direction: column; gap: 1rem; }
-        .comps-refuge-label { margin-left: 0; }
-        .tier-top { grid-template-columns: 1fr; gap: 3rem; }
-        .tier-top-div { display: none; }
-        .tier-top-col { padding: 0; }
-        .about-grid { grid-template-columns: 1fr; }
-        .about-div { display: none; }
-        .tiers-lower { grid-template-columns: 1fr; }
-        .tier-card { border-right: none; border-bottom: 1px solid rgba(62,15,26,0.1); }
-        .tiers-total { flex-direction: column; gap: 0.75rem; text-align: center; }
-        .founder-grid { grid-template-columns: 1fr; }
-        .founder-rule-vert { display: none; }
-        .founder-left { padding-right: 0; margin-bottom: 3rem; }
-        .founder-right { padding-left: 0; }
-        .apply-cols { grid-template-columns: 1fr; }
-        .apply-col-rule { display: none; }
-        .apply-left { padding-right: 0; margin-bottom: 3rem; }
-        .apply-right { padding-left: 0; }
-        .form-row { grid-template-columns: 1fr; }
-        footer { flex-direction: column; gap: 1rem; text-align: center; }
-    }
-    </style>
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.6;
+    filter: grayscale(20%) contrast(1.1);
+  }
+
+  .hero-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    opacity: 0.4;
+  }
+
+  .hero-photo-placeholder svg {
+    width: 80px;
+    height: 80px;
+    stroke: var(--dim);
+    fill: none;
+    stroke-width: 1;
+  }
+
+  .hero-photo-placeholder span {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 72px;
+  }
+
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+    margin-left: 24px;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .about-text p:first-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .about-aside {
+    padding-top: 8px;
+  }
+
+  .aside-block {
+    border-top: 1px solid var(--line);
+    padding: 28px 0;
+  }
+
+  .aside-block:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .aside-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .aside-content {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* NUMBERS */
+  .numbers-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 100px 60px;
+  }
+
+  .numbers-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+  }
+
+  .number-block {
+    background: var(--bg2);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .number-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+
+  .number-block:hover::before { height: 100%; }
+
+  .number-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 4vw, 60px);
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .number-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 220px;
+  }
+
+  /* EXPERIENCE */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 60px;
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .exp-item:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .exp-meta {
+    padding-top: 4px;
+  }
+
+  .exp-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .exp-dates {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 4px;
+  }
+
+  .exp-location {
+    font-size: 12px;
+    color: var(--dim);
+  }
+
+  .exp-content {}
+
+  .exp-role {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .exp-body {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  .exp-body + .exp-body {
+    margin-top: 16px;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+  }
+
+  .contact-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 5vw, 68px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-headline em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .contact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .contact-value:hover { color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--line); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 24px 32px; }
+    .nav-links { gap: 24px; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 140px 32px 80px; }
+    .hero-right { height: 50vw; }
+    .hero-stats { grid-template-columns: repeat(3,1fr); }
+
+    section { padding: 80px 32px; }
+
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .numbers-grid { grid-template-columns: 1fr; }
+    .number-block { padding: 40px 32px; }
+
+    .exp-item { grid-template-columns: 1fr; gap: 20px; }
+
+    .contact-inner { grid-template-columns: 1fr; gap: 56px; padding: 80px 32px; }
+    .numbers-section { padding: 80px 32px; }
+
+    footer { padding: 32px; flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
 <nav>
-    <a class="nav-brand" href="#">
-        <span class="nav-wordmark">Refuge Club</span>
-        <span class="nav-sub">Bordeaux · Private Estate</span>
-    </a>
-    <ul class="nav-links">
-        <li><a href="#vision">The Vision</a></li>
-        <li><a href="#estate">The Estate</a></li>
-        <li><a href="#membership">Membership</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#apply">Apply</a></li>
-    </ul>
+  <a href="#" class="nav-name">Daniel Barnes</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.linkedin.com/in/ltvcpi/" target="_blank">LinkedIn</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-    <div class="hero-bg"></div>
-    <svg class="hero-vine" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 80 900 C 80 700 140 600 100 450 C 60 300 160 200 120 80" stroke="#A87828" stroke-width="1.5" fill="none"/>
-        <path d="M 100 700 C 140 680 200 660 220 640" stroke="#A87828" stroke-width="1" fill="none"/>
-        <ellipse cx="230" cy="636" rx="18" ry="10" fill="none" stroke="#A87828" stroke-width="1" transform="rotate(-30 230 636)"/>
-        <circle cx="230" cy="635" r="7" fill="#A87828" opacity="0.4"/>
-        <circle cx="244" cy="626" r="5" fill="#A87828" opacity="0.3"/>
-        <path d="M 90 550 C 40 530 -20 500 -40 470" stroke="#A87828" stroke-width="1" fill="none"/>
-        <path d="M 110 400 C 160 370 190 340 210 310" stroke="#A87828" stroke-width="1" fill="none"/>
-        <ellipse cx="216" cy="308" rx="16" ry="9" fill="none" stroke="#A87828" stroke-width="1" transform="rotate(-20 216 308)"/>
-        <circle cx="215" cy="305" r="6" fill="#A87828" opacity="0.35"/>
-        <path d="M 1360 900 C 1360 700 1300 600 1340 450 C 1380 300 1280 200 1320 80" stroke="#A87828" stroke-width="1.5" fill="none"/>
-        <path d="M 1340 700 C 1300 680 1240 660 1220 640" stroke="#A87828" stroke-width="1" fill="none"/>
-        <ellipse cx="1210" cy="636" rx="18" ry="10" fill="none" stroke="#A87828" stroke-width="1" transform="rotate(30 1210 636)"/>
-        <circle cx="1210" cy="635" r="7" fill="#A87828" opacity="0.4"/>
-        <path d="M 1350 550 C 1400 530 1460 500 1480 470" stroke="#A87828" stroke-width="1" fill="none"/>
-        <path d="M 1330 400 C 1280 370 1250 340 1230 310" stroke="#A87828" stroke-width="1" fill="none"/>
-        <ellipse cx="1224" cy="308" rx="16" ry="9" fill="none" stroke="#A87828" stroke-width="1" transform="rotate(20 1224 308)"/>
-        <line x1="300" y1="140" x2="680" y2="140" stroke="#A87828" stroke-width="0.8"/>
-        <line x1="760" y1="140" x2="1140" y2="140" stroke="#A87828" stroke-width="0.8"/>
-        <circle cx="720" cy="140" r="5" fill="#A87828"/>
-        <circle cx="300" cy="140" r="2.5" fill="#A87828"/>
-        <circle cx="1140" cy="140" r="2.5" fill="#A87828"/>
-        <path d="M 255 165 L 235 140 L 255 115" fill="none" stroke="#A87828" stroke-width="0.8"/>
-        <path d="M 1185 165 L 1205 140 L 1185 115" fill="none" stroke="#A87828" stroke-width="0.8"/>
-    </svg>
-    <div class="hero-horizon"></div>
-
-    <div class="hero-inner">
-        <div class="hero-pre reveal">
-            <div class="hero-pre-line"></div>
-            <span class="hero-pre-text">Private Estate · Bordeaux · Founding 2026</span>
-            <div class="hero-pre-line"></div>
-        </div>
-
-        <div class="hero-emblem reveal reveal-d1">
-            <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="36" cy="36" r="34" fill="none" stroke="#A87828" stroke-width="0.8" opacity="0.45"/>
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#A87828" stroke-width="0.4" opacity="0.25"/>
-                <text x="36" y="47" font-family="'Cormorant Garamond', serif" font-size="30" font-weight="300" fill="#A87828" text-anchor="middle" opacity="0.75">R</text>
-                <line x1="20" y1="16" x2="52" y2="16" stroke="#A87828" stroke-width="0.6" opacity="0.35"/>
-                <line x1="20" y1="57" x2="52" y2="57" stroke="#A87828" stroke-width="0.6" opacity="0.35"/>
-                <circle cx="36" cy="10" r="2" fill="#A87828" opacity="0.35"/>
-                <circle cx="36" cy="62" r="2" fill="#A87828" opacity="0.35"/>
-            </svg>
-        </div>
-
-        <h1 class="hero-title reveal reveal-d1">REFUGE<span class="hero-title-sub">Club</span></h1>
-
-        <p class="hero-body reveal reveal-d2">
-            Fifty founding families. Forty-five hectares of ancient forest, working vineyard and still water in the heart of Saint-Émilion and Pomerol country. A private estate built for those who want something enduring.
-        </p>
-
-        <div class="reveal reveal-d3">
-            <div class="hero-founding">
-                <div class="hero-founding-dot"></div>
-                <span>Founding Circle — July 2026</span>
-                <div class="hero-founding-dot"></div>
-            </div>
-        </div>
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">General Manager · Games & Interactive Entertainment</p>
+    <h1 class="hero-name">Daniel<br><em>Barnes</em></h1>
+    <p class="hero-desc">
+      Fifteen years running game businesses end to end. P&L ownership, studio operations, org design, capital raising, and the hard calls that sit across all of it.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">$250m</div>
+        <div class="stat-label">Revenue built on a single title</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">386→190</div>
+        <div class="stat-label">Studio restructured</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$78.9m</div>
+        <div class="stat-label">Institutional capital raised</div>
+      </div>
     </div>
-
-    <div class="scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-hint-bar"></div>
+  </div>
+  <div class="hero-right">
+    <img
+      id="hero-photo"
+      class="hero-photo"
+      src="photo.jpg"
+      alt="Daniel Barnes"
+      onerror="this.style.display='none'; document.getElementById('hero-placeholder').style.display='flex';"
+    />
+    <div id="hero-placeholder" class="hero-photo-placeholder" style="display:none;">
+      <svg viewBox="0 0 80 80"><circle cx="40" cy="28" r="16"/><path d="M10 72c0-16.57 13.43-30 30-30s30 13.43 30 30"/></svg>
+      <span>Photo coming soon</span>
     </div>
-</section>
+  </div>
 
-<div class="full-rule"></div>
-
-<!-- VISION -->
-<section id="vision" class="vision-bg section-pad">
-    <div class="section-narrow">
-        <div class="vision-header">
-            <div class="reveal">
-                <p class="eyebrow">What We're Building</p>
-                <h2 class="section-title">The Vision</h2>
-                <div class="rule-gold"></div>
-            </div>
-            <p class="vision-header-right reveal reveal-d1">
-                Refuge is not a holiday property. It is a private sanctuary — a place to step away from the noise, be part of a community that values craft and land, and build something that will outlast all of us.
-            </p>
-        </div>
-        <div class="vision-grid reveal">
-            <div class="vision-item">
-                <div class="vision-num">I</div>
-                <h3>Protected Sanctuary</h3>
-                <p>A walled estate where families live on their own terms. Privacy. Peace. Real distance from the world. Designed for presence, not distraction.</p>
-            </div>
-            <div class="vision-item">
-                <div class="vision-num">II</div>
-                <h3>Working Vineyard</h3>
-                <p>1.5 hectares of AOC Bordeaux Merlot producing estate wine exclusively for members. Kitchen gardens, orchards, and real food from real soil in the heart of Saint-Émilion country.</p>
-            </div>
-            <div class="vision-item">
-                <div class="vision-num">III</div>
-                <h3>Architect Lodges</h3>
-                <p>Twelve individually designed eco-lodges across the estate. Natural materials, modern interiors. Solar. Water collection. Beautiful and built to endure for generations.</p>
-            </div>
-            <div class="vision-item">
-                <div class="vision-num">IV</div>
-                <h3>Founding Community</h3>
-                <p>Fifty families who value craft, independence, and quality. Winemaking, woodworking, ceramics, seasonal gatherings. A network forged by shared values, not circumstance.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="full-rule"></div>
-
-<!-- ESTATE -->
-<section id="estate" class="estate-bg">
-    <div class="estate-inner">
-        <div class="estate-header reveal">
-            <div>
-                <p class="eyebrow" style="color:rgba(196,152,64,0.7)">The Estate</p>
-                <h2>Forty-five hectares.<br>One private world.</h2>
-            </div>
-            <p>Ancient woodland, a historic pond, open meadow, working vineyard and twelve private lodges — all within a single boundary, in the heart of the Right Bank.</p>
-        </div>
-        <div class="stats-row reveal">
-            <div class="stat"><div class="stat-n">45</div><div class="stat-l">Total Hectares</div></div>
-            <div class="stat"><div class="stat-n">1.5</div><div class="stat-l">Vineyard ha</div></div>
-            <div class="stat"><div class="stat-n">12</div><div class="stat-l">Private Lodges</div></div>
-            <div class="stat"><div class="stat-n">50</div><div class="stat-l">Founding Families</div></div>
-            <div class="stat"><div class="stat-n">240</div><div class="stat-l">sqm Main House</div></div>
-            <div class="stat"><div class="stat-n">1</div><div class="stat-l">Historic Pond</div></div>
-        </div>
-        <div class="estate-region reveal">
-            <div class="estate-region-tag">Bordeaux · Right Bank</div>
-            <div class="region-badges">
-                <div class="region-badge">Saint-Émilion</div>
-                <div class="region-badge">Pomerol</div>
-                <div class="region-badge">AOC Bordeaux</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<div class="full-rule"></div>
-
-<!-- MEMBERSHIP -->
-<section id="membership" class="member-bg section-pad">
-    <div class="section-narrow">
-        <div class="reveal">
-            <p class="eyebrow">Private Membership</p>
-            <h2 class="section-title">The Founding Circle</h2>
-            <div class="rule-gold"></div>
-            <p class="member-preamble">Refuge operates on a private members' club model: a one-time founding fee securing your place in the estate, plus an annual membership covering operations, staff, the vineyard, and the events programme. No hidden costs. No surprises.</p>
-        </div>
-
-        <!-- Estate Partners — top tier -->
-        <div class="tier-top reveal">
-            <div class="tier-top-badge">Founding Tier · 6 Places Only</div>
-            <div class="tier-top-col">
-                <div class="tt-label">Estate Partners</div>
-                <div class="tt-name">Most Involved.<br>Most Enduring.</div>
-                <p class="tt-blurb">The deepest form of involvement. A stake in the estate, the most time, a genuine seat in how Refuge evolves. Six places, never repeated at this price.</p>
-            </div>
-            <div class="tier-top-div"></div>
-            <div class="tier-top-col">
-                <div class="tt-price-label">Founding Fee</div>
-                <div class="tt-price"><sup>€</sup>150,000</div>
-                <div class="tt-annual-wrap">
-                    <div class="tt-annual-label">Annual Membership</div>
-                    <div class="tt-annual-price">€8,000 / year</div>
-                </div>
-                <div class="tt-spots">6 places · Transferable to heirs</div>
-                <ul class="tt-list" style="margin-top:2rem;">
-                    <li>Ten weeks lodging per year — lifetime</li>
-                    <li>Private use of the main house (selected weeks)</li>
-                    <li>Equity-equivalent founding stake in the estate</li>
-                    <li>Named on the estate register</li>
-                    <li>48 bottles estate wine annually</li>
-                    <li>Priority booking — 365 days advance</li>
-                </ul>
-            </div>
-            <div class="tier-top-div"></div>
-            <div class="tier-top-col">
-                <ul class="tt-list">
-                    <li>Governance co-founder voice</li>
-                    <li>Private dining &amp; harvest experiences</li>
-                    <li>Commercial use rights for retreats</li>
-                    <li>Personalised lodge design input</li>
-                    <li>Exclusive winemaking sessions</li>
-                    <li>Transferable to heirs</li>
-                </ul>
-                <a href="#apply" class="tt-cta">Request an Introduction</a>
-            </div>
-        </div>
-
-        <!-- Lower 3 tiers -->
-        <div class="tiers-lower reveal">
-            <div class="tier-card">
-                <div class="t-name">Vineyard Founders</div>
-                <div class="t-fee-label">Founding Fee</div>
-                <div class="t-price"><sup>€</sup>30,000</div>
-                <div class="t-annual">
-                    <div class="t-annual-label">Annual Membership</div>
-                    <div class="t-annual-price">€5,000 / year</div>
-                </div>
-                <div class="t-spots">10 places only</div>
-                <div class="t-rule"></div>
-                <ul class="t-benefits">
-                    <li>Four weeks lodging per year — lifetime</li>
-                    <li>Named lodge with design input</li>
-                    <li>24 bottles estate wine annually</li>
-                    <li>Founding partner governance voice</li>
-                    <li>Priority booking — 365 days advance</li>
-                    <li>Commercial use rights for retreats</li>
-                    <li>Exclusive harvest &amp; winemaking events</li>
-                    <li>Transferable to heirs</li>
-                </ul>
-                <a href="#apply" class="t-cta">Request an Introduction</a>
-            </div>
-            <div class="tier-card">
-                <div class="t-name">Estate Founders</div>
-                <div class="t-fee-label">Founding Fee</div>
-                <div class="t-price"><sup>€</sup>12,000</div>
-                <div class="t-annual">
-                    <div class="t-annual-label">Annual Membership</div>
-                    <div class="t-annual-price">€2,500 / year</div>
-                </div>
-                <div class="t-spots">20 places only</div>
-                <div class="t-rule"></div>
-                <ul class="t-benefits">
-                    <li>Two weeks lodging per year — lifetime</li>
-                    <li>12 bottles estate wine annually</li>
-                    <li>Priority booking — 30 days advance</li>
-                    <li>Quarterly estate gatherings</li>
-                    <li>10% discount on additional stays</li>
-                    <li>Founding member recognition</li>
-                    <li>Workshop &amp; masterclass programme</li>
-                    <li>Transferable to heirs</li>
-                </ul>
-                <a href="#apply" class="t-cta">Request an Introduction</a>
-            </div>
-            <div class="tier-card">
-                <div class="t-name">Founding Patrons</div>
-                <div class="t-fee-label">Founding Fee</div>
-                <div class="t-price"><sup>€</sup>3,000</div>
-                <div class="t-annual">
-                    <div class="t-annual-label">Annual Membership</div>
-                    <div class="t-annual-price">€1,200 / year</div>
-                </div>
-                <div class="t-spots">20 places only</div>
-                <div class="t-rule"></div>
-                <ul class="t-benefits">
-                    <li>One week lodging per year — lifetime</li>
-                    <li>6 bottles estate wine annually</li>
-                    <li>Early booking — 14 days advance</li>
-                    <li>Biannual estate events</li>
-                    <li>20% discount on additional stays</li>
-                    <li>Community platform access</li>
-                    <li>Founding patron recognition</li>
-                    <li>Transferable to heirs</li>
-                </ul>
-                <a href="#apply" class="t-cta">Request an Introduction</a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<div class="full-rule"></div>
+</div>
 
 <!-- ABOUT -->
-<section id="about" class="about-bg section-pad">
-    <div class="section-narrow">
-        <div class="reveal">
-            <p class="eyebrow">The Team</p>
-            <h2 class="section-title">Behind Refuge</h2>
-            <div class="rule-gold"></div>
-        </div>
-        <div class="about-grid reveal">
-            <div class="about-col">
-                <div class="about-col-label">Founder</div>
-                <div class="about-col-value">Dan Barnes</div>
-                <div class="about-col-sub">Former COO of N3TWORK and co-founder of RIFT. A decade building and scaling technology companies through acquisition and growth.</div>
-            </div>
-            <div class="about-div"></div>
-            <div class="about-col">
-                <div class="about-col-label">The Estate</div>
-                <div class="about-col-value">45 Hectares · Bordeaux</div>
-                <div class="about-col-sub">Located in the heart of the Right Bank, adjacent to Saint-Émilion and Pomerol. AOC Bordeaux vineyard, historic pond, ancient woodland, and twelve private lodges.</div>
-            </div>
-            <div class="about-div"></div>
-            <div class="about-col">
-                <div class="about-col-label">Timeline</div>
-                <div class="about-col-value">Opening July 2026</div>
-                <div class="about-col-sub">The founding circle is open now. Places are limited and allocated in order of application. The estate opens to founding members in July 2026.</div>
-            </div>
-        </div>
+<section id="about">
+  <div class="section-header reveal">
+    <span class="section-num">01</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I am a Gamer, a Founder, and a Creator. There is nothing I enjoy more than building true, deep, immersive digital experiences that bring players genuine delight. I have spent fifteen years chasing that — and learning, sometimes the hard way, what it actually takes to make it happen.</p>
+      <p>What I have come to understand is that great games rarely fail because of bad ideas. They fail because the business around them is not built to support them. The P&L that nobody owns. The roadmap with no accountability behind it. The org that has grown faster than its decision-making infrastructure. I am problem-centric about this, which does not mean I am negative — I think of myself as an optimist, but through the lens of the challenges between where I am and where I want to be.</p>
+      <p>At N3TWORK I built the operating infrastructure behind $250m in revenue on a single title, negotiated a publishing deal with The Tetris Company, and raised $78.9m in institutional capital. At Phoenix Labs I stepped into a studio with real creative ambition and significant operational complexity, made the hard portfolio calls with full decision-making authority, and reduced monthly burn from $11m to $3.5m while protecting the titles worth saving. I founded Rift, built a technology platform and live game in 18 months on $250k pre-seed, and made a clean decision to wind down when the funding environment shifted. I am now President at Mavan, where we have grown revenue 4x and built the operational foundation the business needed to scale properly.</p>
+      <p>I believe in radical candor, the golden rule, and the Mike Tyson principle: everyone has a plan until they get punched in the face. The ability to adapt quickly to new information is one of the most underrated skills in this industry. I try to practise it every day.</p>
+      <p>Currently in London with my wife and three children, after a decade split between the Bay Area and Europe. I love my family, France, football, and food. In that order, mostly.</p>
     </div>
+    <div class="about-aside reveal">
+      <div class="aside-block">
+        <div class="aside-label">Location</div>
+        <div class="aside-content">London, UK</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">Languages</div>
+        <div class="aside-content">English — Native<br>French — Native<br>German — Intermediate</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">Education</div>
+        <div class="aside-content">MBA, Université de Nantes<br>2007 – 2011</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">How I work</div>
+        <div class="aside-content">Problem-centric. Radical candor. I would rather name the real obstacle than paper over it. I change my mind reasonably often, but always with logic and never because it is easier.</div>
+      </div>
+      <div class="aside-block">
+        <div class="aside-label">Currently open to</div>
+        <div class="aside-content">GM, COO, and operational leadership roles in games and interactive entertainment</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="full-rule"></div>
-
-<!-- APPLY -->
-<section id="apply" class="apply-bg section-pad">
-    <div class="section-narrow apply-inner">
-        <div class="apply-cols">
-            <div class="apply-left reveal">
-                <p class="eyebrow">Founding Circle Closing</p>
-                <h2 class="section-title">Request<br><em style="font-style:italic;">an Introduction</em></h2>
-                <div class="rule-gold" style="background:rgba(196,152,64,0.4);"></div>
-                <p class="apply-body">Applications are reviewed personally by Dan. You will hear back within 48 hours.<br><br><strong>All enquiries are treated in the strictest confidence.</strong></p>
-            </div>
-            <div class="apply-col-rule"></div>
-            <div class="apply-right reveal reveal-d1">
-                <form id="applyForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="you@example.com">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="tier">Membership Tier</label>
-                        <select id="tier" name="tier">
-                            <option value="" disabled selected>Select a tier</option>
-                            <option>Estate Partners — €150,000 + €8,000 p.a.</option>
-                            <option>Vineyard Founders — €30,000 + €5,000 p.a.</option>
-                            <option>Estate Founders — €12,000 + €2,500 p.a.</option>
-                            <option>Founding Patrons — €3,000 + €1,200 p.a.</option>
-                            <option>Not yet decided</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="msg">Why Refuge Club?</label>
-                        <textarea id="msg" name="message" placeholder="Tell us what draws you to this vision…"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Submit Application</button>
-                    <p class="form-note">Dan reads every application personally. Founding circle places are limited and allocated in order of application.</p>
-                </form>
-            </div>
-        </div>
+<!-- NUMBERS -->
+<div class="numbers-section">
+  <div class="numbers-grid">
+    <div class="number-block reveal">
+      <div class="number-big">$250m</div>
+      <div class="number-desc">Lifetime revenue on Legendary: Game of Heroes with full P&L ownership at N3TWORK</div>
     </div>
+    <div class="number-block reveal">
+      <div class="number-big">$11m→$3.5m</div>
+      <div class="number-desc">Monthly burn reduced at Phoenix Labs over 18 months, 386 to 190 headcount</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">$78.9m</div>
+      <div class="number-desc">Raised across two institutional rounds from KPCB Growth, Floodgate, Galaxy & Griffin</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">4x</div>
+      <div class="number-desc">Revenue growth at Mavan with flat headcount and significantly improved profitability</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">$250k</div>
+      <div class="number-desc">Pre-seed capital used to build a complete technology platform and live game at Rift in 18 months</div>
+    </div>
+    <div class="number-block reveal">
+      <div class="number-big">$2m+</div>
+      <div class="number-desc">Daily UA spend managed at Machine Zone during mobile gaming's formative years</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header reveal">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="experience-list">
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Mavan</div>
+        <div class="exp-dates">Nov 2025 — Present</div>
+        <div class="exp-location">London, UK</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">President</div>
+        <div class="exp-body">Mavan is a performance marketing agency for games. I came in as a contractor first, spent time understanding the business properly, then joined as President to build the operational foundation it needed to scale. That meant installing P&L reporting and KPI frameworks where there were none, rebuilding the org design, redefining how we hire and what we measure, and taking over new business development. The focus throughout has been on turning good work into repeatable, defensible performance. Revenue is up 4x, headcount is broadly flat, and the business is significantly more profitable. I am also building Mavan's proprietary technology platform to systematise what we do across clients.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Rift</div>
+        <div class="exp-dates">Mid 2024 — Nov 2025</div>
+        <div class="exp-location">London, UK</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Founder & CEO</div>
+        <div class="exp-body">Founded Rift to build a new category in interactive entertainment: social, multiplayer storytelling powered by AI. Built StoryEngine — a proprietary narrative platform with persistent player memory, emergent NPC behaviour, modular architecture, and live ops infrastructure — and launched The Consulting Detectives into alpha. 1,000+ sessions, 12-minute average session length, 50% of sessions from player invites. Built a complete technology platform and live game in 18 months on $250k pre-seed. Wound down when the seed funding environment structurally shifted against early-stage studios.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Phoenix Labs</div>
+        <div class="exp-dates">Jan 2023 — Mid 2024</div>
+        <div class="exp-location">Remote</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">General Manager</div>
+        <div class="exp-body">Phoenix Labs had real creative ambition and serious operational challenges in equal measure. 386 people across 11 titles on Switch, console, and PC, with no P&L framework and no fiscal accountability structures in place. I stepped in with full decision-making authority and a clear mandate: give the studio the best possible chance of success. That meant making hard portfolio calls quickly, focusing resource on the titles with genuine commercial potential and strong team infrastructure, and installing the accountability frameworks that let executive producers own their numbers for the first time. Reduced monthly burn from $11m to $3.5m and headcount from 386 to 190 over 18 months. Two titles reached a point where I believed they were ready to ship and would have performed well.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Forte Labs</div>
+        <div class="exp-dates">Jan 2022 — Jan 2023</div>
+        <div class="exp-location">Remote</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Product Lead, Platform Rebuild</div>
+        <div class="exp-body">Owned the product side of a ground-up rebuild of Forte's blockchain gaming platform. Diagnosed why the monolithic original had failed to gain developer adoption. Working alongside the technical lead, defined and delivered a new microservices architecture that gave publishers genuine flexibility while maintaining compliance across the stack.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">N3TWORK</div>
+        <div class="exp-dates">Feb 2016 — Jan 2022</div>
+        <div class="exp-location">San Francisco</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">CMO, then COO</div>
+        <div class="exp-body">Joined as CMO and expanded into a full COO role working directly alongside the CEO. Led product development and live operations for Legendary: Game of Heroes to $250m lifetime revenue with P&L ownership throughout. Negotiated and managed the publishing relationship with Blue Planet Software (The Tetris Company). Led Tetris Primetime, a daily live game show with real cash prizes. Raised $78.9m across two rounds from KPCB Growth, Floodgate, Galaxy, and Griffin. Designed org model, culture frameworks, and hiring infrastructure for a distributed global team.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Zynga</div>
+        <div class="exp-dates">Feb 2014 — Feb 2016</div>
+        <div class="exp-location">London / San Francisco</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Central Product Management</div>
+        <div class="exp-body">Joined Zynga's central product team post the $527m NaturalMotion acquisition with P&L ownership across the portfolio including CSR2 and Dawn of Titans. Grew CSR2 to $143m annual revenue and 500k DAU. Managed licensing relationships across Ferrari, Lamborghini, McLaren, and Porsche.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">NaturalMotion</div>
+        <div class="exp-dates">Feb 2013 — Jan 2014</div>
+        <div class="exp-location">Oxford, UK</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">VP, Acquisition, Retention & Monetisation</div>
+        <div class="exp-body">Owned and scaled revenue and install growth by optimising the LTV to CPI equation across the portfolio. Commercial performance during this period contributed directly to the $527m Zynga acquisition.</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <div class="exp-company">Machine Zone</div>
+        <div class="exp-dates">Jun 2011 — Jan 2013</div>
+        <div class="exp-location">Palo Alto, CA</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Early Hire, Performance Marketing</div>
+        <div class="exp-body">Part of the founding group at what became Machine Zone, the company behind Game of War. Built the performance marketing stack from scratch: server-to-server integrations, attribution systems, cost tracking. Scaled 5 titles into the top 50 grossing on iOS. Managed $2m+ daily UA spend. Worked directly with Facebook and Google on CPI bidding models that became industry standard.</div>
+      </div>
+    </div>
+
+  </div>
+
 </section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-headline reveal">Let's<br><em>talk.</em></h2>
+    <div class="contact-details reveal">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <a href="mailto:dan@kijo.io" class="contact-value">dan@kijo.io</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Phone</span>
+        <a href="tel:+447305436350" class="contact-value">+44 7305 436 350</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/ltvcpi/" target="_blank" class="contact-value">linkedin.com/in/ltvcpi</a>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Location</span>
+        <span class="contact-value" style="cursor:default;">London, UK</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
-    <div class="footer-logo">Refuge Club</div>
-    <div class="footer-copy">© 2025 Refuge Club · Bordeaux, France · All rights reserved</div>
+  <span class="footer-copy">© 2026 Daniel Barnes</span>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/ltvcpi/" target="_blank">LinkedIn</a>
+    <a href="https://twitter.com/_danbarnes_" target="_blank">Twitter</a>
+  </div>
 </footer>
 
 <script>
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => { e.preventDefault(); const t = document.querySelector(a.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth' }); });
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
     });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.getElementById('applyForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name    = document.getElementById('name').value.trim();
-        const email   = document.getElementById('email').value.trim();
-        const tier    = document.getElementById('tier').value;
-        const message = document.getElementById('msg').value.trim();
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        const subject = encodeURIComponent('Refuge Club — Application from ' + name);
-        const body = encodeURIComponent(
-            'Name: ' + name + '\n' +
-            'Email: ' + email + '\n' +
-            'Tier: ' + (tier || 'Not selected') + '\n\n' +
-            'Message:\n' + message
-        );
+  // Stagger number blocks
+  document.querySelectorAll('.number-block.reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+  });
 
-        window.location.href = 'mailto:hello@refuge.club?subject=' + subject + '&body=' + body;
-
-        const btn = this.querySelector('.btn-submit');
-        btn.textContent = 'Opening Your Email Client…';
-        btn.style.background = 'rgba(196,152,64,0.25)';
-        btn.style.color = 'rgba(246,240,230,0.6)';
-    });
+  // Hero photo fallback - check immediately
+  const img = document.getElementById('hero-photo');
+  if (img && img.complete && img.naturalWidth === 0) {
+    img.style.display = 'none';
+    document.getElementById('hero-placeholder').style.display = 'flex';
+  }
 </script>
 </body>
 </html>
